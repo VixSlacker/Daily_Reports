@@ -1,0 +1,133 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VIX constant-maturity curve - 2026-09-04</title><style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f4f2ec;--bg2:#fbfaf6;--border:#d5cfc2;--border2:#b3ab99;
+--text:#3f4854;--dim:#6b7482;--bright:#1c222c;--label:#5a6472;
+--track:#dcd6c8;--track-edge:#cec7b6;--flat:#79818f;
+--lit:#1a7f4b;--lit-text:#0f1319;--row-dim:#7a8290;
+--today:#1c222c;--prior:#8a91a0;--anchor:#5a6472;--gate:#b32438;
+--target:#9a6510;--zone:#f0e4cc}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:13px;padding:20px}
+.wrap{max-width:1180px;margin:0 auto}
+
+.hdr{display:flex;align-items:center;gap:14px;padding-bottom:14px;
+border-bottom:1px solid var(--border);margin-bottom:16px;flex-wrap:wrap}
+.hdr-title{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:var(--bright);letter-spacing:.05em}
+.hdr-sub{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--label);letter-spacing:.08em}
+.hdr-date{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);margin-left:auto}
+.hdr-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;padding:5px 12px;
+border-radius:2px;letter-spacing:.1em}
+
+.howto{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:16px 20px;margin-bottom:16px}
+.howto-s{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+color:var(--label);font-weight:500;cursor:pointer;list-style:none}
+.howto-s::-webkit-details-marker{display:none}
+.howto-s::before{content:'\25B8  ';color:var(--dim)}
+.howto[open] .howto-s::before{content:'\25BE  '}
+.howto-b{margin-top:12px}
+.howto-b p{font-size:12.5px;line-height:1.75;color:var(--text);margin-bottom:9px;max-width:98ch}
+.howto-b p:last-child{margin-bottom:0}
+
+.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);
+border:1px solid var(--border);border-radius:3px;margin-bottom:20px;overflow:hidden}
+.strip3{grid-template-columns:repeat(3,1fr)}
+.glance{margin:0;padding:0;list-style:none}
+.glance li{display:grid;grid-template-columns:118px 1fr;gap:12px;padding:7px 0;
+  border-top:1px solid var(--border)}
+.glance li:first-child{border-top:0}
+.pq2{margin-top:18px}
+text.vixm{font-family:'IBM Plex Mono',monospace;font-size:11px;fill:var(--dim)}
+.gl-k{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--label);
+  letter-spacing:.1em;text-transform:uppercase;padding-top:3px}
+.gl-v{font-size:13px;line-height:1.55;color:var(--text)}
+.strip4{grid-template-columns:repeat(4,1fr)}
+.sc{background:var(--bg2);padding:11px 14px}
+.sc-l{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--label);letter-spacing:.1em;
+text-transform:uppercase;margin-bottom:5px}
+.sc-mod{color:var(--dim);letter-spacing:.06em}
+.sc-v{font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:500;color:var(--bright)}
+.sc-vt{font-size:15px;font-weight:500;color:var(--bright)}
+.sc-alt{color:var(--dim);font-weight:400}
+.sc-s{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:4px;line-height:1.45}
+
+.rowdiv{border-top:1px solid var(--border2);margin:20px 0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:18px;
+display:flex;flex-direction:column;margin-bottom:14px}
+.pq{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;color:var(--label);text-transform:uppercase}
+.pt{font-size:15px;font-weight:500;color:var(--bright);margin-top:4px}
+.blab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.09em;text-transform:uppercase;
+color:var(--label);margin:15px 0 9px}
+
+.mr{display:grid;grid-template-columns:104px 58px 56px 1fr 96px;align-items:center;gap:9px;margin-bottom:7px}
+.mr-l{font-size:12px;color:var(--row-dim)}
+.mr-v{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--bright);text-align:right}
+.mr-d{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);text-align:right}
+.mr-t{display:block;height:9px;background:var(--track);border-radius:2px;position:relative;
+box-shadow:inset 0 0 0 1px var(--track-edge)}
+.mr-m{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--bright);border-radius:1px}
+.mr-g{position:absolute;top:-10px;height:5px;width:2px;background:var(--dim);border-radius:1px}
+.mr-f{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--dim);opacity:.45}
+.mr-clip{position:absolute;top:-5px;font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:17px;
+color:var(--bright)}
+.mr-h{position:absolute;top:-3px;bottom:-3px;width:9px;margin-left:-4px;border:1px solid var(--dim);
+border-radius:50%;background:transparent}
+.mr-z{position:absolute;top:0;bottom:0;background:var(--zone);border-radius:0 2px 2px 0}
+.mr-p{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);text-align:right}
+.mr-hd{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--label);text-align:right}
+.axl{display:grid;grid-template-columns:104px 58px 56px 1fr 96px;gap:9px;font-family:'IBM Plex Mono',monospace;
+font-size:9px;color:var(--label);letter-spacing:.06em;margin-top:3px}
+.axl-in{grid-column:4;position:relative;height:12px;white-space:nowrap}
+.axl-in span{position:absolute;top:0}
+.axl-in span:first-child{left:0}
+.axl-in span:nth-child(2){left:50%;transform:translateX(-50%)}
+.axl-in span:last-child{right:0}
+.mkey{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--label);letter-spacing:.04em;
+margin:5px 0 0}
+.mr-sub{margin:15px 0 9px}
+.mr-sub .blab{grid-column:1/4;margin:0}
+
+.exe{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:12px;margin-top:4px}
+.exe-k{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--label);padding-top:2px}
+.exe-v{color:var(--text);line-height:1.6}
+.mono{font-family:'IBM Plex Mono',monospace}
+.on{color:var(--lit-text);font-weight:600}
+
+.tbl{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:12px;margin-top:4px}
+.tbl th{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--label);font-weight:500;
+text-align:right;padding:0 0 7px 14px;border-bottom:1px solid var(--border)}
+.tbl th:first-child{text-align:left;padding-left:0}
+.tbl td{text-align:right;padding:6px 0 6px 14px;color:var(--text)}
+.tbl td:first-child{text-align:left;padding-left:0;font-family:'IBM Plex Sans',sans-serif;color:var(--dim)}
+.tbl tr.anchor td{color:var(--bright);font-weight:600}
+.tbl tr.anchor td:first-child{color:var(--bright)}
+.tbl td.sep,.tbl th.sep{border-left:1px solid var(--border);padding-left:14px}
+.tbl th.grp{text-align:center;font-size:8px;letter-spacing:.1em;color:var(--label);
+padding-bottom:5px;border-bottom:none}
+
+.tgs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.tg{display:inline-flex;align-items:baseline;gap:9px;background:transparent;cursor:pointer;
+border:1px solid var(--border2);border-radius:3px;padding:6px 11px;
+font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.04em}
+.tg:hover{border-color:var(--bright)}
+.tg .sw{width:16px;height:2px;display:inline-block;align-self:center}
+.tg .v{display:none;color:var(--bright);font-weight:600}
+.tg.on{color:var(--bright);background:var(--bg)}
+.tg.on .v{display:inline}
+.tg-anchor{border-style:solid;color:var(--bright);cursor:default}
+
+.say{font-size:12.5px;line-height:1.7;color:var(--text);margin-top:15px}
+.dd{border-top:1px solid var(--border);margin-top:auto;padding-top:11px}
+.panel > .say + .dd{margin-top:15px}
+summary{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--label);cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'\25B8  ';color:var(--dim)}
+details[open] summary::before{content:'\25BE  '}
+.ddb{font-size:11.5px;line-height:1.75;color:var(--dim);margin-top:9px;max-width:80ch}
+
+.foot{border-top:1px solid var(--border);margin-top:20px;padding-top:13px;
+font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);line-height:1.7}
+@media(max-width:900px){.row2{grid-template-columns:1fr}.strip{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><div class="wrap"><div class="hdr"><span class="hdr-title">VIX CONSTANT-MATURITY CURVE</span><span class="hdr-sub">FIVE SESSIONS</span><span class="hdr-date">2026-09-04</span></div><details class="howto"><summary class="howto-s">How to read this chart</summary><div class="howto-b"><p>Each line is one session's constant-maturity curve: the settlement curve interpolated to fixed maturities of 30, 60, 90, 120 and 150 calendar days.</p><p>Fixed maturities are what make the sessions comparable. Real contracts lose a day of life every session, so raw contract curves shift sideways underneath you and shape change gets confused with the passage of time.</p><p>The buttons are independent, so any combination of prior sessions can sit on the chart at once. The scale is computed from all five and does not move.</p><p>Shape is read from the gaps between adjacent maturities. A curve in contango normally decays: each 30-day step rises less than the one before it. Departures from that decay are what the knee and kick wording marks, and on most sessions there is nothing to mark.</p></div></details><div class="strip strip4"><div class="sc"><div class="sc-l">VIX close</div><div class="sc-v">14.53</div><div class="sc-s">+0.21 today &middot; -0.39 over the 5 sessions shown</div></div><div class="sc"><div class="sc-l">Basis &middot; VIX &minus; CM30</div><div class="sc-v">2.70</div><div class="sc-s">spot below CM30</div></div><div class="sc"><div class="sc-l">Span &middot; CM30 to CM150</div><div class="sc-v">+2.97</div><div class="sc-s">front to back, today</div></div><div class="sc"><div class="sc-l">Segments today</div><div class="sc-v">1.20 / 0.45</div><div class="sc-s">steepest 30&ndash;60 &middot; flattest 60&ndash;90</div></div></div><div class="panel"><div class="pq">Curve &middot; today anchored</div><div class="pt">The curve is in contango, flattening.</div><svg viewBox="0 0 1120 340" width="100%" role="img" aria-label="Constant-maturity curves for the five most recent sessions"><line x1="62.0" y1="289.1" x2="1102.0" y2="289.1" stroke="#d5cfc2" stroke-width="1px"/><text x="54.0" y="292.6" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="end">17.0</text><line x1="62.0" y1="255.2" x2="1102.0" y2="255.2" stroke="#d5cfc2" stroke-width="1px"/><text x="54.0" y="258.7" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="end">17.5</text><line x1="62.0" y1="221.3" x2="1102.0" y2="221.3" stroke="#d5cfc2" stroke-width="1px"/><text x="54.0" y="224.8" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="end">18.0</text><line x1="62.0" y1="187.4" x2="1102.0" y2="187.4" stroke="#d5cfc2" stroke-width="1px"/><text x="54.0" y="190.9" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="end">18.5</text><line x1="62.0" y1="153.5" x2="1102.0" y2="153.5" stroke="#d5cfc2" stroke-width="1px"/><text x="54.0" y="157.0" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="end">19.0</text><line x1="62.0" y1="119.6" x2="1102.0" y2="119.6" stroke="#d5cfc2" stroke-width="1px"/><text x="54.0" y="123.1" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="end">19.5</text><line x1="62.0" y1="85.8" x2="1102.0" y2="85.8" stroke="#d5cfc2" stroke-width="1px"/><text x="54.0" y="89.3" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="end">20.0</text><line x1="62.0" y1="51.9" x2="1102.0" y2="51.9" stroke="#d5cfc2" stroke-width="1px"/><text x="54.0" y="55.4" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="end">20.5</text><line x1="62.0" y1="18.0" x2="1102.0" y2="18.0" stroke="#d5cfc2" stroke-width="1px"/><text x="54.0" y="21.5" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="end">21.0</text><line x1="62.0" y1="306.0" x2="1102.0" y2="306.0" stroke="#b3ab99" stroke-width="1"/><text x="166.0" y="321.0" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="middle">30</text><text x="374.0" y="321.0" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="middle">60</text><text x="582.0" y="321.0" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="middle">90</text><text x="790.0" y="321.0" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="middle">120</text><text x="998.0" y="321.0" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="middle">150</text><text x="582.0" y="336.0" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="400" fill="#5a6472" text-anchor="middle">constant maturity, calendar days</text><circle cx="166.0" cy="273.5" r="9.0" fill="transparent"><title>Fri 04 Sep · 17.23</title></circle><circle cx="374.0" cy="192.1" r="9.0" fill="transparent"><title>Fri 04 Sep · 18.43</title></circle><circle cx="582.0" cy="161.7" r="9.0" fill="transparent"><title>Fri 04 Sep · 18.88</title></circle><circle cx="790.0" cy="121.5" r="9.0" fill="transparent"><title>Fri 04 Sep · 19.47</title></circle><circle cx="998.0" cy="72.4" r="9.0" fill="transparent"><title>Fri 04 Sep · 20.20</title></circle><g data-series="4" style="display:none"><polyline points="166.0,267.8 374.0,178.1 582.0,144.8 790.0,107.7 998.0,48.6" fill="none" stroke="#a6c4e4" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity="1.0" stroke-dasharray="6 3"/><circle cx="166.0" cy="267.8" r="2.6" fill="#a6c4e4"/><circle cx="374.0" cy="178.1" r="2.6" fill="#a6c4e4"/><circle cx="582.0" cy="144.8" r="2.6" fill="#a6c4e4"/><circle cx="790.0" cy="107.7" r="2.6" fill="#a6c4e4"/><circle cx="998.0" cy="48.6" r="2.6" fill="#a6c4e4"/><circle cx="166.0" cy="267.8" r="3.0" fill="transparent"><title>Mon 31 Aug · 17.31</title></circle><circle cx="374.0" cy="178.1" r="3.0" fill="transparent"><title>Mon 31 Aug · 18.64</title></circle><circle cx="582.0" cy="144.8" r="3.0" fill="transparent"><title>Mon 31 Aug · 19.13</title></circle><circle cx="790.0" cy="107.7" r="3.0" fill="transparent"><title>Mon 31 Aug · 19.68</title></circle><circle cx="998.0" cy="48.6" r="3.0" fill="transparent"><title>Mon 31 Aug · 20.55</title></circle></g><g data-series="3" style="display:none"><polyline points="166.0,225.4 374.0,151.5 582.0,128.3 790.0,97.9 998.0,44.5" fill="none" stroke="#7aa8d6" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity="1.0" stroke-dasharray="6 3"/><circle cx="166.0" cy="225.4" r="2.6" fill="#7aa8d6"/><circle cx="374.0" cy="151.5" r="2.6" fill="#7aa8d6"/><circle cx="582.0" cy="128.3" r="2.6" fill="#7aa8d6"/><circle cx="790.0" cy="97.9" r="2.6" fill="#7aa8d6"/><circle cx="998.0" cy="44.5" r="2.6" fill="#7aa8d6"/><circle cx="166.0" cy="225.4" r="9.0" fill="transparent"><title>Tue 01 Sep · 17.94</title></circle><circle cx="374.0" cy="151.5" r="9.0" fill="transparent"><title>Tue 01 Sep · 19.03</title></circle><circle cx="582.0" cy="128.3" r="7.3" fill="transparent"><title>Tue 01 Sep · 19.37</title></circle><circle cx="790.0" cy="97.9" r="4.4" fill="transparent"><title>Tue 01 Sep · 19.82</title></circle><circle cx="998.0" cy="44.5" r="3.0" fill="transparent"><title>Tue 01 Sep · 20.61</title></circle></g><g data-series="2" style="display:none"><polyline points="166.0,262.6 374.0,177.4 582.0,143.8 790.0,107.7 998.0,56.8" fill="none" stroke="#4f8bc6" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity="1.0" stroke-dasharray="6 3"/><circle cx="166.0" cy="262.6" r="2.6" fill="#4f8bc6"/><circle cx="374.0" cy="177.4" r="2.6" fill="#4f8bc6"/><circle cx="582.0" cy="143.8" r="2.6" fill="#4f8bc6"/><circle cx="790.0" cy="107.7" r="2.6" fill="#4f8bc6"/><circle cx="998.0" cy="56.8" r="2.6" fill="#4f8bc6"/><circle cx="166.0" cy="262.6" r="3.0" fill="transparent"><title>Wed 02 Sep · 17.39</title></circle><circle cx="374.0" cy="177.4" r="3.0" fill="transparent"><title>Wed 02 Sep · 18.65</title></circle><circle cx="582.0" cy="143.8" r="3.0" fill="transparent"><title>Wed 02 Sep · 19.14</title></circle><circle cx="790.0" cy="107.7" r="3.0" fill="transparent"><title>Wed 02 Sep · 19.68</title></circle><circle cx="998.0" cy="56.8" r="3.0" fill="transparent"><title>Wed 02 Sep · 20.43</title></circle></g><g data-series="1" style="display:none"><polyline points="166.0,282.8 374.0,192.5 582.0,155.0 790.0,114.3 998.0,62.3" fill="none" stroke="#2a6bb0" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity="1.0" stroke-dasharray="6 3"/><circle cx="166.0" cy="282.8" r="2.6" fill="#2a6bb0"/><circle cx="374.0" cy="192.5" r="2.6" fill="#2a6bb0"/><circle cx="582.0" cy="155.0" r="2.6" fill="#2a6bb0"/><circle cx="790.0" cy="114.3" r="2.6" fill="#2a6bb0"/><circle cx="998.0" cy="62.3" r="2.6" fill="#2a6bb0"/><circle cx="166.0" cy="282.8" r="4.2" fill="transparent"><title>Thu 03 Sep · 17.09</title></circle><circle cx="374.0" cy="192.5" r="3.0" fill="transparent"><title>Thu 03 Sep · 18.42</title></circle><circle cx="582.0" cy="155.0" r="3.0" fill="transparent"><title>Thu 03 Sep · 18.98</title></circle><circle cx="790.0" cy="114.3" r="3.0" fill="transparent"><title>Thu 03 Sep · 19.58</title></circle><circle cx="998.0" cy="62.3" r="3.0" fill="transparent"><title>Thu 03 Sep · 20.35</title></circle></g><g style="pointer-events:none"><polyline points="166.0,273.5 374.0,192.1 582.0,161.7 790.0,121.5 998.0,72.4" fill="none" stroke="#1c222c" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" opacity="1.0"/><circle cx="166.0" cy="273.5" r="3.5" fill="#1c222c"/><circle cx="374.0" cy="192.1" r="3.5" fill="#1c222c"/><circle cx="582.0" cy="161.7" r="3.5" fill="#1c222c"/><circle cx="790.0" cy="121.5" r="3.5" fill="#1c222c"/><circle cx="998.0" cy="72.4" r="3.5" fill="#1c222c"/></g><text x="66.0" y="299.0" class="vixm">▾ VIX 14.53</text></svg><div class="tgs"><button class="tg tg-anchor" disabled><span class="sw" style="background:#1c222c"></span>Fri 04 Sep<span class="v" style="display:inline">CM30 17.23</span></button><button class="tg" data-toggle="1"><span class="sw" style="background:#2a6bb0"></span>Thu 03 Sep<span class="v">CM30 17.09</span></button><button class="tg" data-toggle="2"><span class="sw" style="background:#4f8bc6"></span>Wed 02 Sep<span class="v">CM30 17.39</span></button><button class="tg" data-toggle="3"><span class="sw" style="background:#7aa8d6"></span>Tue 01 Sep<span class="v">CM30 17.94</span></button><button class="tg" data-toggle="4"><span class="sw" style="background:#a6c4e4"></span>Mon 31 Aug<span class="v">CM30 17.31</span></button></div><div class="say">Today is the anchor. Switch a prior session on to compare, or hover a point for its value; the vertical scale is fixed across all 5 sessions, so today's line never moves.</div></div><div class="panel"><div class="pq">At a glance</div><ul class="glance"><li><span class="gl-k">Shape</span><span class="gl-v">The curve is in contango, with a kick at 90-120. The 90-120 stretch currently covers December to January. The curve steps up there most years, so this kick is normal for the time of year rather than something new.</span></li><li><span class="gl-k">Today</span><span class="gl-v">CM30 moved +0.14 on the session, to 17.23. CM150 moved -0.15, to 20.20. The 30-60 segment flattened most on the session, from 1.33 to 1.20.</span></li><li><span class="gl-k">The week</span><span class="gl-v">Across the 5 sessions shown, CM30 moved -0.08 and CM150 moved -0.35, so the front end moved less than the back.</span></li></ul><div class="pq pq2">Constant-maturity grid</div><table class="tbl"><thead><tr><th></th><th colspan="5" class="grp">levels</th><th colspan="2" class="grp sep"></th></tr><tr><th>session</th><th>CM30</th><th>CM60</th><th>CM90</th><th>CM120</th><th>CM150</th><th class="sep">VIX</th><th>basis</th></tr></thead><tbody><tr class="anchor"><td>Fri 04 Sep &middot; today</td><td>17.23</td><td>18.43</td><td>18.88</td><td>19.47</td><td>20.20</td><td class="sep">14.53</td><td>-2.70</td></tr><tr class=""><td>Thu 03 Sep</td><td>17.09</td><td>18.42</td><td>18.98</td><td>19.58</td><td>20.35</td><td class="sep">14.32</td><td>-2.77</td></tr><tr class=""><td>Wed 02 Sep</td><td>17.39</td><td>18.65</td><td>19.14</td><td>19.68</td><td>20.43</td><td class="sep">15.20</td><td>-2.19</td></tr><tr class=""><td>Tue 01 Sep</td><td>17.94</td><td>19.03</td><td>19.37</td><td>19.82</td><td>20.61</td><td class="sep">16.34</td><td>-1.60</td></tr><tr class=""><td>Mon 31 Aug</td><td>17.31</td><td>18.64</td><td>19.13</td><td>19.68</td><td>20.55</td><td class="sep">14.92</td><td>-2.39</td></tr></tbody></table><div class="dd"><details><summary>About the VIX and basis columns</summary><div class="ddb">The table lists each session's constant-maturity levels, then VIX and the basis. The basis is VIX minus CM30, in volatility points: VIX is the spot index and CM30 an interpolated futures price, so the gap is spot measured against the front of the futures curve, not two readings of one thing. It is usually negative, spot below the curve; it turns positive when spot jumps above the front, as it does in a spike.</div></details></div></div><div class="foot">Constant-maturity levels are interpolated from standardised monthly VX futures settlements to fixed maturities of 30, 60, 90, 120 and 150 calendar days. Sessions shown: Mon 31 Aug to Fri 04 Sep.</div><script>document.querySelectorAll('[data-toggle]').forEach(function(b){b.addEventListener('click',function(){var i=b.getAttribute('data-toggle');var g=document.querySelector('[data-series="'+i+'"]');var on=b.classList.toggle('on');if(g){g.style.display=on?'':'none'}});});</script></div></body></html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VIX Daily Read — 2026-09-03</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f4f2ec;--bg2:#fbfaf6;--border:#d5cfc2;--border2:#b3ab99;
+--text:#3f4854;--dim:#6b7482;--bright:#1c222c;--label:#5a6472;
+--track:#dcd6c8;--track-edge:#cec7b6;--flat:#79818f;
+--lit:#1a7f4b;--lit-text:#0f1319;--row-dim:#7a8290}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:13px;padding:20px}
+.wrap{max-width:1180px;margin:0 auto}
+
+.hdr{display:flex;align-items:center;gap:14px;padding-bottom:14px;
+border-bottom:1px solid var(--border);margin-bottom:16px;flex-wrap:wrap}
+.hdr-title{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:var(--bright);letter-spacing:.05em}
+.hdr-sub{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--label);letter-spacing:.08em}
+.hdr-date{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);margin-left:auto}
+.hdr-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;padding:5px 12px;
+border-radius:2px;letter-spacing:.1em}
+
+.howto{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:16px 20px;margin-bottom:16px}
+.howto-s{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+color:var(--label);font-weight:500;cursor:pointer;list-style:none}
+.howto-s::-webkit-details-marker{display:none}
+.howto-s::before{content:'\25B8  ';color:var(--dim)}
+.howto[open] .howto-s::before{content:'\25BE  '}
+.howto-b{margin-top:12px}
+.howto-b p{font-size:12.5px;line-height:1.75;color:var(--text);margin-bottom:9px;max-width:98ch}
+.howto-b p:last-child{margin-bottom:0}
+.howto-l{margin:0 0 12px 0;padding-left:19px;max-width:98ch}
+.howto-l li{font-size:12.5px;line-height:1.75;color:var(--text);margin-bottom:5px}
+.howto-l li:last-child{margin-bottom:0}
+
+.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);
+border:1px solid var(--border);border-radius:3px;margin-bottom:20px;overflow:hidden}
+.sc{background:var(--bg2);padding:11px 14px}
+.sc-l{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--label);letter-spacing:.1em;
+text-transform:uppercase;margin-bottom:5px}
+.sc-mod{color:var(--dim);letter-spacing:.06em}
+.sc-v{font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:500;color:var(--bright)}
+.sc-vt{font-size:15px;font-weight:500;color:var(--bright)}
+.sc-alt{color:var(--dim);font-weight:400}
+.sc-s{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:4px;line-height:1.45}
+
+.rowdiv{border-top:1px solid var(--border2);margin:20px 0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:18px;
+display:flex;flex-direction:column}
+.pq{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;color:var(--label);text-transform:uppercase}
+.pt{font-size:15px;font-weight:500;color:var(--bright);margin-top:4px}
+.blab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.09em;text-transform:uppercase;
+color:var(--label);margin:15px 0 9px}
+
+.br{display:grid;grid-template-columns:78px 1fr 44px;align-items:center;gap:9px;margin-bottom:6px}
+.br-l{font-size:12px;color:var(--row-dim)}
+.br-l.on{color:var(--lit-text);font-weight:600}
+.br-t{display:block;height:9px;background:var(--track);border-radius:2px;overflow:hidden;
+box-shadow:inset 0 0 0 1px var(--track-edge)}
+.br-f{display:block;height:100%;border-radius:2px;background:var(--flat)}
+.br-v{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--row-dim);text-align:right}
+.br-v.on{color:var(--lit-text);font-weight:600}
+.br3{display:grid;grid-template-columns:92px 1fr 44px;align-items:center;gap:9px;margin-bottom:6px}
+.br4{display:grid;grid-template-columns:70px 1fr 46px 66px;align-items:center;gap:9px;margin-bottom:6px}
+.br-d{display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text);
+text-align:right;border-left:1px solid var(--border);padding-left:12px;padding-right:2px}
+.br-d.on{color:var(--lit-text);font-weight:600}
+.br-h{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--label);text-align:right}
+.br-h.d{border-left:1px solid var(--border);padding-left:12px;padding-right:2px;line-height:1.35}
+
+.tbl{display:grid;gap:7px 12px;font-size:12px;align-items:baseline}
+.t-k{color:var(--dim)}
+.t-k.on{color:var(--lit-text);font-weight:600}
+.t-v{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--bright);text-align:right}
+.t-v.dim{color:var(--dim)}
+.t-h{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--label);text-align:right}
+.t-sub{color:var(--dim);font-size:11px;padding-left:14px}
+.t-subv{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);text-align:right}
+
+.pct-r{margin-bottom:13px}
+.pct-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+.pct-l{font-size:12px;color:var(--dim)}
+.pct-l.on{color:var(--lit-text);font-weight:600}
+.pct-v{font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--bright)}
+.pct-n{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:4px}
+
+.rng{display:grid;grid-template-columns:54px 40px 1fr 40px;align-items:center;gap:9px;margin-bottom:11px}
+.rng-l{font-size:12px;color:var(--dim)}
+.rng-e{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim)}
+.rng-t{display:block;height:9px;background:var(--track);border-radius:2px;position:relative;
+box-shadow:inset 0 0 0 1px var(--track-edge)}
+.rng-m{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--bright);border-radius:1px}
+
+.say{font-size:12.5px;line-height:1.7;color:var(--text);margin-top:15px}
+.dd{border-top:1px solid var(--border);margin-top:auto;padding-top:11px}
+.panel > .say + .dd{margin-top:15px}
+summary{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--label);cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'\25B8  ';color:var(--dim)}
+details[open] summary::before{content:'\25BE  '}
+.ddb{font-size:11.5px;line-height:1.75;color:var(--dim);margin-top:9px;max-width:80ch}
+.ddb p{margin-bottom:9px}
+.ddb p:last-child{margin-bottom:0}
+
+.foot{border-top:1px solid var(--border);margin-top:20px;padding-top:13px;
+font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);line-height:1.7}
+@media(max-width:900px){.row2{grid-template-columns:1fr}.strip{grid-template-columns:repeat(2,1fr)}}
+</style></head>
+<body><div class="wrap">
+<div class="hdr"><span class="hdr-title">VIX DAILY READ</span><span class="hdr-sub">PART 1 OF 4</span><span class="hdr-date">2026-09-03</span><span class="hdr-badge" style="border:1px solid #9a6510;background:#f6ead2;color:#7d5108">BOUNDARY</span></div>
+<details class="howto"><summary class="howto-s">How to read this report</summary><div class="howto-b"><p>Two models describe the VIX from different perspectives.</p><p>The first, a Gaussian mixture model (GMM), looks only at today's VIX closing level. It compares that close with the historical pattern of VIX levels and places the day into one of six regimes — Calm, Normal, Elevated, Stressed, Extreme or Crisis.</p><p>The percentages show how strongly today's VIX level fits each regime. The highest percentage determines the judgment badge at the top of the page:</p><ul class="howto-l"><li>Confident: 60% or higher. One regime describes the day clearly enough to use on its own.</li><li>Boundary: 45% or higher but below 60%. The day falls between regimes, so the two strongest fits are shown.</li><li>Indeterminate: below 45%. No single regime describes the day well enough to rely on the label.</li></ul><p>The GMM has no memory: it does not consider yesterday's VIX or the path VIX took to get here. It describes only where today's closing level sits.</p><p>The second, a hidden Markov model (HMM), does consider the recent path of VIX. It places that path into one of seven states, numbered 0 through 6 from calmest to most turbulent. These states are separate from the six GMM regimes — the numbering is unrelated, and a state does not correspond to any particular regime — and there is no direct translation between the two systems.</p><p>The percentages show how strongly the recent VIX path fits each state. Because this model incorporates recent history, it tends to change more slowly than the VIX itself.</p><p>One describes where VIX is today; the other describes the path that brought it here.</p><p>Nothing in this report is a forecast. It describes today in the context of the historical record and, where shown, how similar conditions have behaved in the past. All counts and time windows are in trading days. Each panel can be expanded for the technical details behind the results.</p></div></details>
+<div class="strip"><div class="sc"><div class="sc-l">VIX close</div><div class="sc-v">14.32</div><div class="sc-s">-0.88 &middot; -5.8%</div></div><div class="sc"><div class="sc-l">Regime <span class="sc-mod">(GMM)</span></div><div class="sc-vt">Normal <span class="sc-alt">&middot; Calm</span></div><div class="sc-s">59% fit &middot; 39% fit</div></div><div class="sc"><div class="sc-l">State <span class="sc-mod">(HMM)</span></div><div class="sc-vt">State 2 <span class="sc-alt">&middot; State 1</span></div><div class="sc-s">98% weight &middot; 2% weight</div></div><div class="sc"><div class="sc-l">This episode</div><div class="sc-v">26</div><div class="sc-s">consecutive days labelled Normal</div></div><div class="sc"><div class="sc-l">Median close</div><div class="sc-v">17.20</div><div class="sc-s">0.98× the full-history median</div></div><div class="sc"><div class="sc-l">Since stressed</div><div class="sc-v">109</div><div class="sc-s">days since a close ≥ 25.82</div></div></div>
+<div class="row2">
+<div class="panel">
+<div class="pq">1 &middot; Where does today's close sit?</div>
+<div class="pt">The regime</div>
+<div class="br" style="margin:16px 0 10px;align-items:end"><span class="blab" style="margin:0">regime</span><span></span><span class="br-h">fit</span></div><div><div class="br"><span class="br-l">Calm</span><span class="br-t"><span class="br-f" style="width:39.49%"></span></span><span class="br-v">39%</span></div><div class="br"><span class="br-l on">Normal</span><span class="br-t"><span class="br-f on" style="width:58.79%"></span></span><span class="br-v on">59%</span></div><div class="br"><span class="br-l">Elevated</span><span class="br-t"><span class="br-f" style="width:1.707%"></span></span><span class="br-v">2%</span></div><div class="br"><span class="br-l">Stressed</span><span class="br-t"><span class="br-f" style="width:0.01561%"></span></span><span class="br-v">0%</span></div><div class="br"><span class="br-l">Extreme</span><span class="br-t"><span class="br-f" style="width:6.696e-05%"></span></span><span class="br-v">0%</span></div><div class="br"><span class="br-l">Crisis</span><span class="br-t"><span class="br-f" style="width:0.0001017%"></span></span><span class="br-v">0%</span></div></div><div class="say">The two are close, so the day genuinely sits between groupings — the split is the information.</div>
+<div class="dd"><details><summary>Technical detail</summary><div class="ddb"><p>A six-component Gaussian mixture model is fitted to the full history of VIX closes from 1990 onward and then frozen until the next scheduled refit. The percentages shown are the posterior probabilities that today's close belongs to each fitted component. The Normal regime has occurred in 446 separate episodes since 1990.</p><p>The fitted boundaries between components are 14.05, 18.99, 25.82, 35.30 and 49.69. These boundaries are estimated from the historical distribution of VIX closes rather than imposed in advance, so they can change at each refit. At the upper end in particular, they differ materially from commonly used conventional VIX bands. For example, a conventional scheme might label VIX 30-40 as Extreme, while this model's Extreme regime does not begin until 35.30 and extends to 49.69.</p><p>The six regimes are therefore statistical mixture components, or clusters, fitted to the distribution of VIX closes since 1990. The regime names are descriptive labels for presentation; the underlying cluster integer is what the analysis uses downstream.</p></div></details></div>
+</div>
+<div class="panel">
+<div class="pq">2 &middot; What did the last year look like?</div>
+<div class="pt">Occupancy and duration</div>
+<div class="br4" style="margin:16px 0 10px;align-items:end"><span class="blab" style="margin:0">regime</span><span></span><span class="br-h">share</span><span class="br-h d">longest<br>episode</span></div><div><div class="br4"><span class="br-l">Calm</span><span class="br-t"><span class="br-f" style="width:1.19%"></span></span><span class="br-v">1.2%</span><span class="br-d">3</span></div><div class="br4"><span class="br-l on">Normal</span><span class="br-t"><span class="br-f" style="width:72.22%"></span></span><span class="br-v on">72.2%</span><span class="br-d on">49</span></div><div class="br4"><span class="br-l">Elevated</span><span class="br-t"><span class="br-f" style="width:22.62%"></span></span><span class="br-v">22.6%</span><span class="br-d">9</span></div><div class="br4"><span class="br-l">Stressed</span><span class="br-t"><span class="br-f" style="width:3.968%"></span></span><span class="br-v">4.0%</span><span class="br-d">3</span></div><div class="br4"><span class="br-l">Extreme</span><span class="br-t"><span class="br-f" style="width:0%"></span></span><span class="br-v">0.0%</span><span class="br-d">0</span></div><div class="br4"><span class="br-l">Crisis</span><span class="br-t"><span class="br-f" style="width:0%"></span></span><span class="br-v">0.0%</span><span class="br-d">0</span></div></div><div class="tbl" style="grid-template-columns:1fr auto;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)"><span class="t-k">Regime changes</span><span class="t-v">40</span></div>
+<div class="dd"><details><summary>Technical detail</summary><div class="ddb"><p>Occupancy shows how the last 252 trading days were distributed across the six regimes — in other words, the share of days spent in each one. Shares change slowly, because each new day replaces just one old day out of 252.</p><p>An episode is an uninterrupted stretch of trading days in the same regime. The longest episode column shows the longest such stretch associated with the trailing window, so it describes how the days were arranged over time rather than simply how many fell into each regime. If an episode began before the 252-day window opened, its full length is retained; as a result, the longest episode can exceed the number of days from that regime that fall inside the window.</p><p>A regime change is recorded whenever the regime differs from the previous trading day, including a change on the first day of the window relative to the day immediately before it. Because the count is recalculated each day over the rolling 252-day window rather than accumulated indefinitely, a new regime change can be offset by an older one dropping out of the window. The total can therefore remain unchanged even on a day when the regime switches.</p><p>Everything in this panel describes the trailing 252 trading days. It is historical context, not a forecast.</p></div></details></div>
+</div>
+</div>
+<div class="rowdiv"></div>
+<div class="row2">
+<div class="panel">
+<div class="pq">3 &middot; What path did VIX take to get here?</div>
+<div class="pt">The state</div>
+<div class="br3" style="margin:16px 0 10px;align-items:end"><span class="blab" style="margin:0;white-space:nowrap">state &middot; center</span><span></span><span class="br-h">weight</span></div><div><div class="br3"><span class="br-l">0 &middot; 11.4</span><span class="br-t"><span class="br-f" style="width:1.832e-06%"></span></span><span class="br-v">0%</span></div><div class="br3"><span class="br-l">1 &middot; 13.3</span><span class="br-t"><span class="br-f" style="width:2.245%"></span></span><span class="br-v">2%</span></div><div class="br3"><span class="br-l on">2 &middot; 15.9</span><span class="br-t"><span class="br-f on" style="width:97.75%"></span></span><span class="br-v on">98%</span></div><div class="br3"><span class="br-l">3 &middot; 18.7</span><span class="br-t"><span class="br-f" style="width:0.002023%"></span></span><span class="br-v">0%</span></div><div class="br3"><span class="br-l">4 &middot; 21.9</span><span class="br-t"><span class="br-f" style="width:8.663e-15%"></span></span><span class="br-v">0%</span></div><div class="br3"><span class="br-l">5 &middot; 26.5</span><span class="br-t"><span class="br-f" style="width:1.785e-22%"></span></span><span class="br-v">0%</span></div><div class="br3"><span class="br-l">6 &middot; 37.1</span><span class="br-t"><span class="br-f" style="width:1.628e-08%"></span></span><span class="br-v">0%</span></div></div><div class="say">Because this model weighs the recent path and not just today's close, it moves more slowly than the price: today's close of 14.32 is below the center of the state it is still tracking. That lag is the model working as intended, not an error.</div>
+<div class="dd"><details><summary>Technical detail</summary><div class="ddb"><p>A seven-state hidden Markov model is fitted to log VIX and the daily change in log VIX, then frozen until the next refit. Unlike the regime model, it uses both the current VIX level and the recent path of change.</p><p>Each state has a fitted center, representing the typical VIX level associated with that state. The center is derived from the state's average log VIX and lies near the middle of the VIX closes assigned to that state. It is therefore a reference point, not a boundary: the seven state centers should not be read as thresholds separating one state from another.</p><p>These states are not renamed versions of the six GMM regimes. The two models use different inputs and divide the historical record in different ways, so there is no direct one-to-one translation between a state and a regime.</p><p>The highest state spans a very wide range of elevated readings, so it identifies a turbulent environment but cannot distinguish an ordinary high-volatility episode from an exceptionally severe one.</p><p>All state probabilities are calculated using only information available through today's close. No future data are used, so there is no hindsight in the classification.</p></div></details></div>
+</div>
+<div class="panel">
+<div class="pq">4 &middot; From a day like this, where did VIX go next?</div>
+<div class="pt">What usually followed</div>
+<div class="tbl" style="grid-template-columns:92px 1fr 1fr;margin-top:0"><span class="blab" style="margin:15px 0 9px;white-space:nowrap">state &middot; center</span><span class="t-h" style="align-self:end;padding-bottom:9px">1 day weight</span><span class="t-h" style="align-self:end;padding-bottom:9px">5 day weight</span><span class="t-k">0 &middot; 11.4</span><span class="t-v dim">0%</span><span class="t-v">1%</span><span class="t-k">1 &middot; 13.3</span><span class="t-v">6%</span><span class="t-v">17%</span><span class="t-k on">2 &middot; 15.9</span><span class="t-v">88%</span><span class="t-v">62%</span><span class="t-k">3 &middot; 18.7</span><span class="t-v">6%</span><span class="t-v">18%</span><span class="t-k">4 &middot; 21.9</span><span class="t-v dim">0%</span><span class="t-v">2%</span><span class="t-k">5 &middot; 26.5</span><span class="t-v dim">0%</span><span class="t-v dim">0%</span><span class="t-k">6 &middot; 37.1</span><span class="t-v dim">0%</span><span class="t-v dim">0%</span></div><div class="say">Where today's weight had moved, 1 and 5 trading days later. This is what the record did from days like this one, not what comes next.</div>
+<div class="dd"><details><summary>Technical detail</summary><div class="ddb"><p>These are not forecasts. They show what the model's fitted transition structure implies: today's state weights carried forward one trading day and five trading days. The result is a probability distribution across the seven states, not a count of what followed similar days in the past. When weight is split across several states, each column is a weighted average across those states rather than the figure for any one of them.</p><p>Both columns are measured forward from today. The 5-day column therefore means five trading days from today, not four days after the 1-day result.</p><p>The 21-day horizon is intentionally omitted. When the model's fitted transition probabilities are extended that far, they make states appear less persistent than they were in the realized historical record, understating persistence by about 5.5 to 11.8 percentage points.</p></div></details></div>
+</div>
+</div>
+<div class="rowdiv"></div>
+<div class="row2">
+<div class="panel">
+<div class="pq">5 &middot; Is this high — and high compared with what?</div>
+<div class="pt">Where today ranks</div>
+<div class="pct-top" style="margin:16px 0 9px;align-items:end"><span class="blab" style="margin:0">basis</span><span class="br-h">percentile</span></div><div><div class="pct-r"><div class="pct-top"><span class="pct-l">All days since 1990</span><span class="pct-v">27th</span></div><div class="br-t"><span class="br-f" style="width:27.23%"></span></div><div class="pct-n">9,262 trading days &middot; median 17.59</div></div><div class="pct-r"><div class="pct-top"><span class="pct-l">Days since 2020</span><span class="pct-v">13th</span></div><div class="br-t"><span class="br-f" style="width:13.07%"></span></div><div class="pct-n">1,706 trading days &middot; median 18.71</div></div><div class="pct-r" style='margin-bottom:0'><div class="pct-top"><span class="pct-l on">Days labelled Normal</span><span class="pct-v">5th</span></div><div class="br-t"><span class="br-f on" style="width:5.196%"></span></div><div class="pct-n">2,983 trading days &middot; median 16.35</div></div></div><div class="say">The third row asks whether today is high for a day like today, not whether it is high. Where the three disagree, that difference is itself the reading.</div>
+<div class="dd"><details><summary>Technical detail</summary><div class="ddb"><p>Percentile ranks are calculated against the full available history, including any new daily observations added since the last monthly data consolidation, so the ranks reflect the complete record through today. Medians are refreshed monthly and may therefore exclude the most recent trading days.</p><p>The second comparison begins in 2020, giving a separate view of the period since then. It uses a fixed starting date rather than a rolling window, so the sample grows by one trading day each day.</p><p>The third comparison ranks today only against other days in the same regime. To avoid drawing conclusions from too little history, that comparison is shown only when the regime has occurred in at least 30 separate episodes. If there are fewer, the percentile rank is withheld and replaced with comparisons to specific historical episodes. That is what happens on a Crisis day.</p></div></details></div>
+</div>
+<div class="panel">
+<div class="pq">6 &middot; How big was the move, and where does it leave today?</div>
+<div class="pt">Change and range</div>
+<div class="tbl" style="grid-template-columns:54px 1fr 1fr 1fr;margin-top:16px"><span></span><span class="t-h">points</span><span class="t-h">% change</span><span class="t-h">percentile</span><span class="t-k">1 day</span><span class="t-v">-0.88</span><span class="t-v">-5.8%</span><span class="t-v">14th</span><span class="t-k">5 days</span><span class="t-v">-0.19</span><span class="t-v">-1.3%</span><span class="t-v">47th</span></div><div class="say" style="margin-top:12px">A move is large or small relative to where it started. The rank compares today's move with moves that began in Normal.</div><div class="blab">Where today sits in the range</div><div><div class="rng" style="margin-bottom:7px"><span></span><span class="t-h">low</span><span></span><span class="t-h" style="text-align:left">high</span></div><div class="rng"><span class="rng-l">21 days</span><span class="rng-e" style="text-align:right">14.25</span><span class="rng-t"><span class="rng-m" style="left:3.349%"></span></span><span class="rng-e">16.34</span></div><div class="rng"><span class="rng-l">63 days</span><span class="rng-e" style="text-align:right">14.25</span><span class="rng-t"><span class="rng-m" style="left:0.8783%"></span></span><span class="rng-e">22.22</span></div><div class="rng"><span class="rng-l">252 days</span><span class="rng-e" style="text-align:right">13.47</span><span class="rng-t"><span class="rng-m" style="left:4.835%"></span></span><span class="rng-e">31.05</span></div></div><div class="say">Range is a different measure from the change above. It places today's close between the lowest and highest closes of each window — about a month, a quarter and a year — and says nothing about the path in between.</div>
+<div class="dd"><details><summary>Technical detail</summary><div class="ddb"><p>VIX tends to move more when VIX itself is high, so the same percentage move has a different meaning depending on where it began. Ranking the move against all days would average across regimes and would not describe any one of them precisely.</p><p>For that reason, the rank shown is conditioned on the regime in which the move began. For the one-day figure that is the prior day's regime; for the five-day figure it is the regime five trading days earlier.</p><p>Percentile ranks run from the most negative move to the most positive. The rank shown is the share of past moves that were at or below today's. A rank of 1 therefore describes a large decline: only about 1% of moves from that starting regime were as negative or more negative. A rank of 99 describes a large rise. A rank near 50 is an ordinary day. Both ends of the scale are unusual, and only the middle is unremarkable.</p><p>That starting regime is not always the same as today's regime, because a large decline can carry VIX into a lower regime. Ranking the change against days with today's regime label instead would be circular, since the change itself is part of what caused the day to receive that label.</p></div></details></div>
+</div>
+</div>
+<div class="foot">Spine 9,262 trading days · history through 2026-08-31 · 3 pending · models fitted through 2026-05-20 · GMM-2026-05-20 · regime labels are the GMM's; conventional VIX bands are display scaffolding only.</div>
+</div></body></html>
